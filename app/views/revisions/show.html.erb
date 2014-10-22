@@ -1,8 +1,24 @@
+<style>
+  table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+  }
+  table {
+    width: 100%;
+  }
+  th, td {
+      padding: 5px;
+      text-align: left;
+  }
+</style>
+
 <ul>
-  <% @repos.each do |repo| %>
-  <li>
-    <a href="<%= revision_path(repo[:name]) %>">#{repo[:friendly]}</a>
-  </li>
+  <% repositories.each do |repo| %>
+    <li>
+      <a href="<%= revision_path(repo[:name]) %>">
+        <%= repo[:friendly] %>
+      </a>
+    </li>
   <% end %>
 </ul>
 <% if not current_repo[:private] %>
