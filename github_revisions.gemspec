@@ -5,7 +5,7 @@ require "github_revisions/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "Github Revisions"
+  s.name        = "github_revisions"
   s.version     = GithubRevisions::VERSION
   s.authors     = ["Jake0oo0"]
   s.email       = ["jake0oo0dev@gmail.com"]
