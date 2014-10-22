@@ -14,11 +14,10 @@ Gem::Specification.new do |s|
   s.description = "Access a list of revisions for various Github repositories."
   s.license     = "MIT"
 
-  s.files         = `git ls-files -z`.split("\x0")
-  s.test_files    = Dir["test/**/*"]
+  s.files = `git ls-files`.split("\n")
+
+  s.add_development_dependency "kaminari"
 
   s.add_dependency "rails", "~> 4.1.6"
-
   s.add_dependency "github_api"
-  s.add_development_dependency "kaminari"
 end
