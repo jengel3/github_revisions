@@ -1,0 +1,41 @@
+<ul>
+  <% @repos.each do |repo| %>
+  <li>
+    <a href="<%= revision_path(repo[:name]) %>">#{repo[:friendly]}</a>
+  </li>
+  <% end %>
+</ul>
+<% if not current_repo[:private] %>
+  <div class="alert">
+    This repository is open source. You can contribute on
+    <a href="<%= current_repo[:url] %>">Github.</a>
+  </div>
+<% end %>
+<table>
+  <tr>
+    <th width="5%">SHA</th>
+    <th width="8%">Author</th>
+    <th width="20%">Commit Message</th>
+    <th width="10%">Time</th>
+  </tr>
+  <% revisions.each do |revision| %>
+  <tr>
+    <td>
+      <a href="<%= revision[:url] %>" target="_blank">
+        <%= revision[:sha][0..6] %>
+      </a>
+    </td>
+    <td>
+      <%= revision[:author] %>
+    </td>
+    <td>
+      <%= revision[:message] %>
+    </td>
+    <td>
+      <%= time_ago_in_words(revision[:date]) %>
+      ago
+    </td>
+  </tr>
+  <% end %>
+</table>
+<%= paginate revisions %>
