@@ -1,6 +1,6 @@
 module GithubRevisions
   module Generators
-    class ViewsGenerator < Rails::Generators::NamedBase
+    class ViewsGenerator < Rails::Generators::Base
       source_root File.expand_path('../../../../app/views/revisions', __FILE__)
 
       def copy_views
