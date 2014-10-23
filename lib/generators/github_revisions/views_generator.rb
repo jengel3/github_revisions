@@ -9,5 +9,6 @@ module GithubRevisions
           copy_file f, "app/views/revisions/#{f}"
         end
       end
+    end
   end
 end
