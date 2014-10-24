@@ -14,17 +14,22 @@ class RevisionsController < ApplicationController
       url = git_repo.html_url
       repositories << {:name => repo[:name], :friendly => repo[:friendly], :url => url, :private => oss, :user => repo[:user]}
     end
+    current_repo = repositories.find { |repo| repo[:name] == params[:id] }
     render 'show', :locals => { :current_repo => current_repo, :revisions => revisions, :repositories => repositories}
   end
 
   def index
-    redirect_first
+    redirect_first(false)
   end
 
   private
 
-  def redirect_first
-    return redirect_to revision_path(GithubRevisions.repositories[0][:name]), :alert => "Invalid Github repository."
+  def redirect_first(alert=true)
+    if alert
+      return redirect_to revision_path(GithubRevisions.repositories[0][:name]), :alert => "Invalid Github repository."
+    else
+      return redirect_to revision_path(GithubRevisions.repositories[0][:name])
+    end
   end
   
   def get_revisions(repository)
