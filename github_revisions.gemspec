@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
 
-  s.add_development_dependency 'kaminari'
+  s.add_development_dependency 'kaminari', '>= 0.15.0'
 
-  s.add_dependency 'rails', '~> 4.1.6'
-  s.add_dependency 'github_api'
+  s.add_dependency 'rails', '>= 4.0.3', '<= 4.1.6'
+  s.add_dependency 'github_api', '>= 0.12.1'
 end
